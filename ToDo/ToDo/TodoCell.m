@@ -21,6 +21,9 @@
     [self addGestureRecognizer:swipe];
     
     self.isStrike = NO;
+    
+
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -42,6 +45,8 @@
         self.titleLabel.text = self.titleLabel.text;
         self.detailLabel.text = self.detailLabel.text;
     }
+
+    [self.delegate updateTodo:self.indexPath];
 }
 
 @end

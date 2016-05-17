@@ -12,7 +12,7 @@
 #import "TodoCell.h"
 #import "NewTodoView.h"
 
-@interface MasterViewController () <AddTodoDelegate>
+@interface MasterViewController () <AddTodoDelegate, TodoEditDelegate>
 
 @property NSMutableArray *objects;
 @property NSArray *todoItems;
@@ -78,6 +78,14 @@
     [self.blurView removeFromSuperview];
 }
 
+-(void)updateTodo:(NSIndexPath *)indexPath {
+    Todo *todo = self.objects[indexPath.row];
+    
+    todo.isCompleted = !todo.isCompleted;
+    
+    //[self.tableView reloadData];
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -108,6 +116,9 @@
     cell.titleLabel.text = [object title];
     cell.detailLabel.text = [object detail];
     cell.priorityLabel.text = [NSString stringWithFormat:@"%ld", (long) [object priority]];
+    cell.isStrike = object.isCompleted;
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     return cell;
 }
 
