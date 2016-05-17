@@ -38,6 +38,12 @@
                        ] mutableCopy];
     
     
+    UISwipeGestureRecognizer *sgr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    [sgr setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    [self.tableView addGestureRecognizer:sgr];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,6 +93,16 @@
     
     
     
+    
+}
+
+-(void)didSwipe:(UISwipeGestureRecognizer *)sender {
+    NSIndexPath *path = [self.tableView indexPathForRowAtPoint:[sender locationInView:self.tableView ]];
+    
+    Todo *todo = self.objects[path.row];
+    
+    todo.isCompleted = !todo.isCompleted;
+    [self.tableView reloadData];
     
 }
 

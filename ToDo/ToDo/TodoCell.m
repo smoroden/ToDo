@@ -14,11 +14,11 @@
     [super awakeFromNib];
     // Initialization code
     
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swiped:)];
-    
-    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-    [self addGestureRecognizer:swipe];
+//    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swiped:)];
+//    
+//    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
+//    
+//    [self addGestureRecognizer:swipe];
     
     self.isStrike = NO;
     
