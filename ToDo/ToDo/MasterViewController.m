@@ -41,6 +41,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +87,7 @@
     
     
     
-    [self.tableView reloadData];
+    
 }
 
 #pragma mark - Segues
