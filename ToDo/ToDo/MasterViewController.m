@@ -156,7 +156,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSObject *temp = self.objects[sourceIndexPath.row];
+    [self.objects removeObjectAtIndex:sourceIndexPath.row];
     
+    [self.objects insertObject:temp atIndex:destinationIndexPath.row];
 }
 
 @end
