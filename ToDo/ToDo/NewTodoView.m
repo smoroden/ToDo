@@ -8,6 +8,18 @@
 
 #import "NewTodoView.h"
 
+@interface NewTodoView ()
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *detailTextField;
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
+@property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
+@property (nonatomic) NSInteger priority;
+
+
+@property (weak, nonatomic) id<AddTodoDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@end
+
 @implementation NewTodoView
 
 
