@@ -112,6 +112,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="detailLabel" destination="wtA-uK-N1L" id="mgV-Gy-L0m"/>
                                     <outlet property="priorityLabel" destination="SYw-zW-wio" id="RpQ-Es-QWN"/>

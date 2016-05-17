@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
 
+@property (nonatomic) BOOL isStrike;
 
 @end
