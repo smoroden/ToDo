@@ -83,7 +83,9 @@
     
     todo.isCompleted = !todo.isCompleted;
     
-    //[self.tableView reloadData];
+    
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Segues
@@ -113,8 +115,21 @@
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     Todo *object = self.objects[indexPath.row];
-    cell.titleLabel.text = [object title];
-    cell.detailLabel.text = [object detail];
+    
+    if (object.isCompleted) {
+        NSAttributedString *titleString = [[NSAttributedString alloc] initWithString:object.title attributes:@{NSStrikethroughStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
+        [cell.titleLabel setAttributedText: titleString];
+        
+        NSAttributedString *detailString = [[NSAttributedString alloc] initWithString:object.detail attributes:@{NSStrikethroughStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
+        
+        [cell.detailLabel setAttributedText:detailString];
+    }
+    else {
+        cell.titleLabel.text = [object title];
+        cell.detailLabel.text = [object detail];
+    }
+    
+    
     cell.priorityLabel.text = [NSString stringWithFormat:@"%ld", (long) [object priority]];
     cell.isStrike = object.isCompleted;
     cell.delegate = self;
@@ -134,6 +149,14 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
 }
 
 @end
