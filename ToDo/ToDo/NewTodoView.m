@@ -16,7 +16,7 @@
 @property (nonatomic) NSInteger priority;
 
 
-@property (weak, nonatomic) id<AddTodoDelegate> delegate;
+
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @end
 

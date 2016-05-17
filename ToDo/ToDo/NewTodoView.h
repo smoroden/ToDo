@@ -18,5 +18,6 @@
 
 @interface NewTodoView : UIView
 
+@property (weak, nonatomic) id<AddTodoDelegate> delegate;
 
 @end
